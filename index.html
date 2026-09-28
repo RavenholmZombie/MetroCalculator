@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Metro Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="calculator" aria-label="Calculator">
+    <nav class="tabs" aria-label="Calculator mode">
+      <button class="tab active" data-mode="standard">Standard</button>
+      <button class="tab" data-mode="scientific">Scientific</button>
+      <button class="tab" data-mode="converter">Converter</button>
+    </nav>
+
+    <section id="standard" class="mode active">
+      <div class="display" aria-live="polite">
+        <div id="history" class="history"></div>
+        <div id="display">0</div>
+      </div>
+
+      <div class="standard-grid">
+        <div class="memory-column">
+          <button data-action="memory">M</button>
+          <button data-action="sign">±</button>
+          <button data-action="sqrt">√</button>
+          <button data-action="percent">%</button>
+          <button data-action="reciprocal">¹⁄ₓ</button>
+        </div>
+
+        <div class="main-keys">
+          <button data-action="clear-entry">CE</button>
+          <button data-action="clear">C</button>
+          <button data-action="backspace" aria-label="Backspace">⌫</button>
+          <button data-op="/">÷</button>
+
+          <button data-num="7">7</button><button data-num="8">8</button><button data-num="9">9</button><button data-op="*">×</button>
+          <button data-num="4">4</button><button data-num="5">5</button><button data-num="6">6</button><button data-op="-">−</button>
+          <button data-num="1">1</button><button data-num="2">2</button><button data-num="3">3</button><button data-op="+">+</button>
+          <button class="zero" data-num="0">0</button><button data-action="decimal">.</button><button class="equals" data-action="equals">=</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scientific" class="mode">
+      <div class="display"><div class="history" id="sci-history"></div><div id="sci-display">0</div></div>
+      <div class="sci-grid">
+        <button data-sci="sin">sin</button><button data-sci="cos">cos</button><button data-sci="tan">tan</button><button data-sci="pi">π</button><button data-sci="sqrt">√</button>
+        <button data-sci="log">log</button><button data-sci="ln">ln</button><button data-sci="square">x²</button><button data-sci="pow">xʸ</button><button data-sci="reciprocal">1/x</button>
+        <button data-sci-num="7">7</button><button data-sci-num="8">8</button><button data-sci-num="9">9</button><button data-sci-op="/">÷</button><button data-sci="clear">C</button>
+        <button data-sci-num="4">4</button><button data-sci-num="5">5</button><button data-sci-num="6">6</button><button data-sci-op="*">×</button><button data-sci="sign">±</button>
+        <button data-sci-num="1">1</button><button data-sci-num="2">2</button><button data-sci-num="3">3</button><button data-sci-op="-">−</button><button data-sci="percent">%</button>
+        <button class="sci-zero" data-sci-num="0">0</button><button data-sci="decimal">.</button><button data-sci-op="+">+</button><button class="equals" data-sci="equals">=</button>
+      </div>
+    </section>
+
+    <section id="converter" class="mode converter">
+      <div class="converter-card">
+        <label>Convert
+          <select id="category">
+            <option value="length">Length</option><option value="mass">Mass</option><option value="temperature">Temperature</option><option value="volume">Volume</option>
+          </select>
+        </label>
+        <div class="convert-row">
+          <div><input id="fromValue" type="number" value="1" step="any"><select id="fromUnit"></select></div>
+          <button id="swap" aria-label="Swap units">⇄</button>
+          <div><input id="toValue" type="text" readonly><select id="toUnit"></select></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
